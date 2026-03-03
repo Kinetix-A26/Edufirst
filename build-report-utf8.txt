@@ -1,0 +1,52 @@
+﻿
+> frontend@0.1.0 build
+> next build
+
+Ôû▓ Next.js 16.1.6 (Turbopack)
+
+  Creating an optimized production build ...
+/*! ­ƒî╝ daisyUI 5.5.19 */
+node.exe : 
+Au caractère Ligne:1 : 1
++ & "C:\Program 
+Files\nodejs/node.exe" 
+"C:\Program 
+Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~
+    + CategoryInfo         
+     : NotSpecified: (:St  
+  ring) [], RemoteExcept   
+ ion
+    + FullyQualifiedErrorI 
+   d : NativeCommandError
+ 
+> Build error occurred
+Error: Turbopack build 
+failed with 3 errors:
+./src/app/(prof)
+You cannot have two 
+parallel pages that 
+resolve to the same path. 
+Please check 
+/(admin)/dashboard and 
+/(prof).
+
+./src/app/(student)
+You cannot have two 
+parallel pages that 
+resolve to the same path. 
+Please check 
+/(admin)/messaging and 
+/(student).
+
+./src/app/(student)
+You cannot have two 
+parallel pages that 
+resolve to the same path. 
+Please check 
+/(prof)/dashboard and 
+/(student).
+
+    at ignore-listed frames
