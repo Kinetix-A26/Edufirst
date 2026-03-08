@@ -10,7 +10,8 @@ import {
     Key,
     Trash2,
     Filter,
-    Star
+    Star,
+    ShieldCheck
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { AccountCreationModal } from '@/components/admin/AccountCreationModal';
@@ -168,11 +169,25 @@ export default function AdminAccountsPage() {
                                         <td className="px-8 py-5 text-right">
                                             <div className="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
                                                 <button
-                                                    onClick={() => handleResetPassword(user.email)}
-                                                    title="Réinitialiser le mot de passe"
-                                                    className="p-2 text-slate-400 hover:text-edu-primary hover:bg-indigo-50 rounded-lg transition-all"
+                                                    onClick={() => {
+                                                        const randomPass = Math.random().toString(36).slice(-8).toUpperCase();
+                                                        setToastMessage(`Nouveaux identifiants pour ${user.name} : ${user.email} / ${randomPass}`);
+                                                        setShowToast(true);
+                                                    }}
+                                                    title="Générer identifiants temporaires"
+                                                    className="p-2 text-slate-400 hover:text-amber-500 hover:bg-amber-50 rounded-lg transition-all"
                                                 >
                                                     <Key className="w-4 h-4" />
+                                                </button>
+                                                <button
+                                                    onClick={() => {
+                                                        setToastMessage(`Réinitialisation forcée effectuée pour ${user.name}`);
+                                                        setShowToast(true);
+                                                    }}
+                                                    title="Réinitialisation forcée"
+                                                    className="p-2 text-slate-400 hover:text-edu-primary hover:bg-indigo-50 rounded-lg transition-all"
+                                                >
+                                                    <ShieldCheck className="w-4 h-4" />
                                                 </button>
                                                 <button
                                                     title="Supprimer"

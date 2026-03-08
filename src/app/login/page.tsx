@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { User, GraduationCap, Users, ShieldCheck, ArrowRight, Lock, Mail } from 'lucide-react';
 
 type Role = 'admin' | 'prof' | 'parent' | 'student';
@@ -18,7 +19,7 @@ const roles: RoleOption[] = [
     {
         id: 'admin',
         title: 'Administrateur',
-        description: 'Gestion de l\'établissement',
+        description: 'Gestion souveraine de l\'établissement',
         icon: <ShieldCheck className="w-8 h-8" />,
         color: 'bg-blue-500'
     },
@@ -107,8 +108,8 @@ export default function LoginPage() {
                                     key={role.id}
                                     onClick={() => setSelectedRole(role.id)}
                                     className={`relative p-6 flex flex-col items-center text-center transition-all duration-300 group ${selectedRole === role.id
-                                            ? 'bg-[#E9DDFF] border-2 border-[#9156FF] ring-2 ring-[#9156FF]/20 shadow-md'
-                                            : 'bg-white dark:bg-gray-800 border-2 border-transparent hover:border-gray-200 dark:hover:border-gray-700'
+                                        ? 'bg-[#E9DDFF] border-2 border-[#9156FF] ring-2 ring-[#9156FF]/20 shadow-md'
+                                        : 'bg-white dark:bg-gray-800 border-2 border-transparent hover:border-gray-200 dark:hover:border-gray-700'
                                         }`}
                                     style={{ borderRadius: '14px' }}
                                 >
@@ -201,6 +202,15 @@ export default function LoginPage() {
                                     </button>
                                 </div>
                             </form>
+
+                            <div className="mt-8 text-center bg-slate-50/50 p-4 rounded-xl border border-dashed border-slate-200">
+                                <p className="text-xs text-slate-500 font-medium">
+                                    Nouvel établissement ?{' '}
+                                    <Link href="/onboarding" className="text-[#9156FF] font-black hover:underline underline-offset-4">
+                                        Enregistrez votre école ici
+                                    </Link>
+                                </p>
+                            </div>
                         </div>
                     </div>
 
@@ -213,6 +223,7 @@ export default function LoginPage() {
                     )}
                 </div>
             </div>
+
 
             <p className="mt-8 text-center text-xs text-gray-500 dark:text-gray-500">
                 &copy; 2026 Edu First. Tous droits réservés. Design Purple Academic.
