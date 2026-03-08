@@ -215,10 +215,19 @@ export default function LoginPage() {
                     </div>
 
                     {!selectedRole && (
-                        <div className="text-center mt-6">
-                            <p className="text-xs text-gray-400 font-medium">
+                        <div className="text-center mt-12 pb-4">
+                            <p className="text-xs text-gray-400 dark:text-gray-500 font-medium mb-6">
                                 Sélectionnez un profil pour déverrouiller le formulaire
                             </p>
+
+                            <div className="pt-6 border-t border-gray-100 dark:border-gray-800">
+                                <p className="text-sm text-gray-600 dark:text-gray-400 font-medium italic">
+                                    Vous représentez un établissement ?{' '}
+                                    <Link href="/onboarding" className="text-[#9156FF] font-black not-italic hover:underline underline-offset-4 ml-1">
+                                        Enregistrez votre école ici
+                                    </Link>
+                                </p>
+                            </div>
                         </div>
                     )}
                 </div>
